@@ -1,6 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 
+const Movie = require('./../models/Movie')
+
 const api_key = process.env.api_key;
 const router = express.Router()
 
@@ -13,7 +15,8 @@ router.get('/:id',(req, res) => {
             api_key: api_key
         }
     })
-        .then(response => res.send(response.data))
+        // .then(response => res.send(response.data))
+        .then(response => res.send(new Movie(response)) )
         .catch(err => console.log(err))
 })
 

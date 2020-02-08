@@ -1,7 +1,7 @@
 const axios = require("axios");
 
-const popularUrl = axios.create({
+const instance = axios.create({
   baseURL: "https://api.themoviedb.org/3"
 });
 
-module.exports = popularUrl;
+module.exports = instance;
