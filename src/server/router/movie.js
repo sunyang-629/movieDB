@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 
+const api_key = process.env.api_key;
 const router = express.Router()
 
 router.get('/:id',(req, res) => {
@@ -9,7 +10,7 @@ router.get('/:id',(req, res) => {
         method: 'get',
         url: 'https://api.themoviedb.org/3/movie/' + id,
         params: {
-            api_key: '6ed12e064b90ae1290fa326ce9e790ff'
+            api_key: api_key
         }
     })
         .then(response => res.send(response.data))
