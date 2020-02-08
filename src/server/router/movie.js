@@ -2,14 +2,18 @@ const express = require('express');
 const axios = require('axios');
 
 const app = express();
-const router = express.Router();
 
 app.get('/api/popular', (req, res) => {
-    console.log('object');
     axios({
         method: 'get',
-        url: 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=6ed12e064b90ae1290fa326ce9e790ff',
-    }).then(response => console.log(response.data.results[0])).catch(err => console.err());
+        url: 'https://api.themoviedb.org/3/discover/movie',
+        params: {
+            api_key: '6ed12e064b90ae1290fa326ce9e790ff',
+            sort_by: 'popularity.desc'
+        }
+    })
+        .then(response => res.send(response.data.results[0]))
+        .catch(err => console.log(err.message));
 })
 
 app.get('/api/movies/:id',(req, res) => {
@@ -20,11 +24,9 @@ app.get('/api/movies/:id',(req, res) => {
         params: {
             api_key: '6ed12e064b90ae1290fa326ce9e790ff'
         }
-    }).then(response => console.log(response.data)).catch(err => console.log(err);)
+    }).then(response => console.log(response.data)).catch(err => console.log(err))
 })
-// app.get('/', (req, res) => {
-//     console.log('object');
-// })
+
 
 app.listen('3000', () => {
     console.log('movie app has started');
