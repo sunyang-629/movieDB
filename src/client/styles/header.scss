@@ -1,3 +1,5 @@
+@import'./constants.scss';
+
 .header {
   /* background-color: #282c34; */
   background-image: url(./../components/images/Header.jpg);
@@ -26,13 +28,13 @@
       height:40px;
       font-size: larger;
       font-weight: 900;
-      color:#01d475 !important;      
+      color: $GREEN_COLOR;      
       ::placeholder {
-        color:#01d475 !important;
+        color: $GREEN_COLOR;
         font-weight: 900;
       }
       input{
-        color: #01d475 !important;
+        color: $GREEN_COLOR;
       }
     }
   }
