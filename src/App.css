@@ -4,14 +4,19 @@
 
 .App-header {
   /* background-color: #282c34; */
-  background-image: url(./client/UI/images/Header.jpg);
+  background-image: url(./client/components/images/Header.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 30vh;
+  position: relative;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.container {
+  width: 60%;
 }
