@@ -1,6 +1,6 @@
 @import'./constants.scss';
 
-.header {
+.popular-header {
   /* background-color: #282c34; */
   background-image: url(./../components/images/Header.jpg);
   background-repeat: no-repeat;
@@ -14,13 +14,13 @@
   justify-content: center;
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   color: white;
-  .container {
-    min-width: 60%;
-  };
+  .container{
+    width: 60%;
+  }
   &-search {
     position: absolute !important;;
     bottom:0;
-    min-width: 60%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     height: 20px;
@@ -35,6 +35,7 @@
       }
       input{
         color: $GREEN_COLOR;
+        font-weight: 900;
       }
     }
   }

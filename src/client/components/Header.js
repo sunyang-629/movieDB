@@ -5,7 +5,7 @@ import Search from './Search'
 
 function Header() {
     return (
-        <div>
+        <div className="container">
             <img className="ui tiny centered fluid image" src={header} alt="logo" />
             <Search />
         </div>
