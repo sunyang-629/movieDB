@@ -26,5 +26,20 @@
             margin-top:5px;
             margin-bottom: 10px;
         }
+        .label{
+            height: 20px;
+            line-height: 20px!important;
+            vertical-align: middle;
+            background-color: white;
+            text-align: center;
+            width: 50px;
+            border-radius: 10px;
+            position: absolute;
+            top:10px;
+            left:20px;
+            p{
+                margin: 0;
+            }
+        }
     }
 };
