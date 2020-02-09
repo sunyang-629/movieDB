@@ -2,9 +2,9 @@ import React from 'react'
 
 const Card = props => {
     return (
-        <div className="popular__cardlist__card">
+        <div className="popular__card-list__card">
             <a href='#'>
-                <img class="ui medium image" src="https://image.tmdb.org/t/p/w500//9mu13RSsvyDdlyD8TyjuQVrT0gM.jpg" />
+                <img className="ui medium image" src="https://image.tmdb.org/t/p/w500//9mu13RSsvyDdlyD8TyjuQVrT0gM.jpg" alt="poster" />
             </a>
             <div className="label">
                 <p>60%</p>

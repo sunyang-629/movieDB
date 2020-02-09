@@ -5,17 +5,17 @@ const CardList = props => {
     return (
         <div className="container">
             <h1>Popular Movies</h1>
-            <div class="ui grid">
-                <div class="doubling four column row">
-                    <div class="column"><Card /></div>
-                    <div class="column"><Card /></div>
-                    <div class="column"><Card /></div>
-                    <div class="column"><Card /></div>
-                    <div class="column"><Card /></div>
-                    <div class="column"><Card /></div>
-                    <div class="column"><Card /></div>
-                    <div class="column"><Card /></div>
-                    <div class="column"><Card /></div>
+            <div className="ui grid">
+                <div className="doubling four column row">
+                    <div className="column"><Card /></div>
+                    <div className="column"><Card /></div>
+                    <div className="column"><Card /></div>
+                    <div className="column"><Card /></div>
+                    <div className="column"><Card /></div>
+                    <div className="column"><Card /></div>
+                    <div className="column"><Card /></div>
+                    <div className="column"><Card /></div>
+                    <div className="column"><Card /></div>
                 </div>
             </div>
         </div>
