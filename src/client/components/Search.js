@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Search() {
+const Search = props => {
     return (
         <div class="ui search popular__header--search centered">
             <div class="ui icon input fluid">

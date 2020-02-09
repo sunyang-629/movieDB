@@ -2,13 +2,13 @@ import React from 'react';
 import Header from '../components/Header'
 import CardList from './../components/CardList'
 
-function Popular(props) {
+const Popular = props => {
     return (
         <div className="popular">
             <header className="popular__header">
                 <Header />
             </header>
-            <div className="cardlist">
+            <div className="popular__cardlist">
                 <CardList />
             </div>
         </div>

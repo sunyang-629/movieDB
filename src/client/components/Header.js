@@ -3,7 +3,7 @@ import header from './images/Logo.svg';
 import Search from './Search'
 // import {image}
 
-function Header() {
+const Header = props => {
     return (
         <div className="container">
             <img className="ui tiny centered fluid image" src={header} alt="logo" />

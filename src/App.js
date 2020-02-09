@@ -1,11 +1,11 @@
 import React from 'react';
 
-import HomePage from './client/pages/HomePage'
+import Routes from './client/routes/Routes'
 
 function App() {
   return (
     <div className="App">
-        <HomePage />
+        <Routes />
     </div>
   );
 }

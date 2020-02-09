@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-function CardList() {
+const CardList = props => {
     return (
         <div className="container">
             <h1>Popular Movies</h1>
