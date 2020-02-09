@@ -1,6 +1,7 @@
 class Popular{
     constructor(rawData) {
-        this.tile = rawData.title;
+        this.vote = rawData.vote_average
+        this.title = rawData.title;
         this.id = rawData.id;
         this.poster_path = 'https://image.tmdb.org/t/p/w500/' + rawData.poster_path;
         this.release_year = rawData.release_date.slice(0, 4);

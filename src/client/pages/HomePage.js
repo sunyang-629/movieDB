@@ -14,7 +14,7 @@ const Popular = props => {
             .catch(err => console.log(err))
     }
     
-    useEffect(fetchPopularData,);
+    useEffect(fetchPopularData,[]);
 
     return (
         <div className="popular">
@@ -22,7 +22,7 @@ const Popular = props => {
                 <Header />
             </header>
             <div className="popular__card-list">
-                <CardList props={state.popularMovies} />
+                <CardList {...state} />
             </div>
         </div>
     );
