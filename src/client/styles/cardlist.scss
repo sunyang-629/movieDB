@@ -11,14 +11,20 @@
             color:$WHITE_COLOR;
         }
     }
-    &-card{
+    &__card{
         img{
             border-radius: 10px;
         };
         h4{
             color:$WHITE_COLOR;
             margin-top: 10px;
+            margin-bottom: 5px;
             font-weight: 400;
+        }
+        p{
+            color:$LIGHT_COLOR;
+            margin-top:5px;
+            margin-bottom: 10px;
         }
     }
 };

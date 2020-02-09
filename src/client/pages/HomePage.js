@@ -5,7 +5,7 @@ import CardList from './../components/CardList'
 function Popular(props) {
     return (
         <div className="popular">
-            <header className="popular-header">
+            <header className="popular__header">
                 <Header />
             </header>
             <div className="cardlist">

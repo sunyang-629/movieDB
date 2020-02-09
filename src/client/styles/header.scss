@@ -1,6 +1,6 @@
 @import'./constants.scss';
 
-.popular-header {
+.popular__header {
   /* background-color: #282c34; */
   background-image: url(./../components/images/Header.jpg);
   background-repeat: no-repeat;
@@ -17,7 +17,7 @@
   .container{
     width: 60%;
   }
-  &-search {
+  &--search {
     position: absolute !important;;
     bottom:0;
     width: 60%;
