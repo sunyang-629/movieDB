@@ -1,17 +1,13 @@
 import React from 'react';
 import './App.css';
 
-import Popular from './client/components/Popular'
+import HomePage from './client/components/HomePage'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-          Learn React
-        <Popular />
+        <HomePage />
       </header>
     </div>
   );
