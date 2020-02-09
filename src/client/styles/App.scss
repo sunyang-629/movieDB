@@ -4,7 +4,7 @@
 
 .App-header {
   /* background-color: #282c34; */
-  background-image: url(./client/components/images/Header.jpg);
+  background-image: url(./../components/images/Header.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -18,5 +18,5 @@
 }
 
 .container {
-  width: 60%;
+  min-width: 60%;
 }
