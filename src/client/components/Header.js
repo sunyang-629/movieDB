@@ -7,7 +7,7 @@ function Header() {
     return (
         <div>
             <img className="ui tiny centered fluid image" src={header} alt="logo" />
-            <Search className="App-header-search centered" />
+            <Search />
         </div>
     )
 }
