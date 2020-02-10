@@ -30,16 +30,24 @@
             height: 20px;
             line-height: 20px!important;
             vertical-align: middle;
-            background-color:$GREEN_COLOR;
             text-align: center;
             width: 50px;
             border-radius: 10px;
             position: absolute;
             top:10px;
             left:20px;
+            &--high{
+                background-color:$HIGH_VOTE_COLOR;
+            }
+            &--medium{
+                background-color:$MEDIUM_VOTE_COLOR;
+            }
+            &--low{
+                background-color:$LOW_VOTE_COLOR;
+            }
             p{
                 margin: 0;
-                color: whitesmoke;
+                color: $WHITE_COLOR;
             }
         }
     }

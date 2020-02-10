@@ -7,8 +7,8 @@ const Card = props => {
             <a href={`/movies/${id}`}>
                 <img className="ui medium image" src={poster_path} alt="poster" />
             </a>
-            <div className="label">
-                <p>{vote}</p>
+            <div className={`label ${vote >= 80 ? 'label--high' : `${vote >= 60 ? 'label--medium' : 'label--low'}`}`}>
+                <p>{vote}%</p>
             </div>
             <h4>{title}</h4>
             <p>{release_month} {release_year}</p>
