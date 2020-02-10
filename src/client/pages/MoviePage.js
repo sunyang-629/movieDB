@@ -27,12 +27,14 @@ const MoviePage = props => {
                                 </div>
                                 <div class="eight wide column">
                                     <h1>{state.movie && state.movie.title}</h1>
+                                    <p>{state.movie && state.movie.release_year} · {state.movie && state.movie.vote} User Score</p>
+                                    <p>{state.movie && state.movie.runtime_hours}h {state.movie && state.movie.runtime_minutes} min</p>
                                 </div>
                             </div>
                         </div>
                         <div class="six wide column">
                             <h2>Overview</h2>
-                            <p>{state.movie && state.movie.overview}</p>
+                            <p className="movie__details--bolder">{state.movie && state.movie.overview}</p>
                         </div>
                     </div>
                 </div>

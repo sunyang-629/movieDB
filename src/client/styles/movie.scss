@@ -8,8 +8,11 @@
     }
     &__details{
         background-color: $BACKGROUND_COLOR;
+        &--bolder{
+            font-weight: 900;
+        };
         .container{
-            width: 80%;
+            width: 85%;
             padding: 50px;
             h1{
                 color:$WHITE_COLOR;
@@ -20,7 +23,6 @@
             p{
                 color:$LIGHT_COLOR;
                 font-size:20px;
-                font-weight: 900;
             }
             img{
                 margin-top: -200px;
