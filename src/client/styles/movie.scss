@@ -2,9 +2,15 @@
 
 .movie{
     &__header{
-        height: 60vh;
+        @media only screen and (max-width: $largestMobileScreen) {
+            height: 250px;
+          }
+        @media only screen and (min-width: $largestMobileScreen) {
+            height: 400px;
+          }
         background-size: cover;
-        background-position: center,center;
+        background-position: center center;
+        background-repeat: no-repeat;
     }
     &__details{
         background-color: $BACKGROUND_COLOR;
@@ -16,16 +22,24 @@
             padding: 50px;
             h1{
                 color:$WHITE_COLOR;
+                margin-bottom: 6vw;
+                font-size: 5.5vw;
             }
             h2{
                 color:$WHITE_COLOR;
             }
             p{
                 color:$LIGHT_COLOR;
-                font-size:20px;
+                @media only screen and (max-width: $largestMobileScreen) {
+                    font-size: 3vw;
+                  }
+                @media only screen and (min-width: $largestMobileScreen) {
+                    font-size: 2.2vw;
+                  }
+                margin-bottom: 0;
             }
             img{
-                margin-top: -200px;
+                margin-top: -30%;
                 border-radius: 20px;
             }
         }

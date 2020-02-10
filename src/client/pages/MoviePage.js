@@ -15,7 +15,7 @@ const MoviePage = props => {
     useEffect(fetchMovieData, []);
 
     return (
-        <div className="movie">
+        <div className="movie container">
             <header className="movie__header" style={{ backgroundImage: `url(${state.movie && state.movie.backdrop_path})` }}></header>
             <div className="movie__details">
                 <div className="container ui centered">
@@ -23,7 +23,7 @@ const MoviePage = props => {
                         <div class="ten wide column">
                             <div class="ui grid">
                                 <div class="eight wide column">
-                                    <img className="ui medium image" src={state.movie && state.movie.poster_path} alt="poster" />
+                                    <img className="ui fluid image" src={state.movie && state.movie.poster_path} alt="poster" />
                                 </div>
                                 <div class="eight wide column">
                                     <h1>{state.movie && state.movie.title}</h1>
