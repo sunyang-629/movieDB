@@ -20,9 +20,18 @@ const MoviePage = props => {
             <div className="movie__details">
                 <div className="container ui centered">
                     <div class="ui stackable two column grid">
-                        <div class="ten wide column">{state.movie && state.movie.title}</div>
+                        <div class="ten wide column">
+                            <div class="ui grid">
+                                <div class="eight wide column">
+                                    <img className="ui medium image" src={state.movie && state.movie.poster_path} alt="poster" />
+                                </div>
+                                <div class="eight wide column">
+                                    <h1>{state.movie && state.movie.title}</h1>
+                                </div>
+                            </div>
+                        </div>
                         <div class="six wide column">
-                            <h1>Overview</h1>
+                            <h2>Overview</h2>
                             <p>{state.movie && state.movie.overview}</p>
                         </div>
                     </div>

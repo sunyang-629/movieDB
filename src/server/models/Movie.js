@@ -7,7 +7,9 @@ class Movie {
         this.overview = data.overview;
         this.id = data.id;
         this.release_year = data.release_date.slice(0, 4);
-        this.vote = (data.vote_average * 10).toString() + '%' ;
+        this.vote = (data.vote_average * 10).toString() + '%';
+        this.runtime_minutes = data.runtime % 60;
+        this.runtime_hours = Math.floor(data.runtime / 60); 
     }
 }
 
