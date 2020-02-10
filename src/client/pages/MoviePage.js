@@ -18,9 +18,14 @@ const MoviePage = props => {
         <div className="movie">
             <header className="movie__header" style={{ backgroundImage: `url(${state.movie && state.movie.backdrop_path})` }}></header>
             <div className="movie__details">
-                <div class="ui stackable two column grid">
-                    <div class="ten wide column">{state.movie && state.movie.title}</div>
-                    <div class="six wide column">{state.movie && state.movie.title}</div>
+                <div className="container ui centered">
+                    <div class="ui stackable two column grid">
+                        <div class="ten wide column">{state.movie && state.movie.title}</div>
+                        <div class="six wide column">
+                            <h1>Overview</h1>
+                            <p>{state.movie && state.movie.overview}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

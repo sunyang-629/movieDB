@@ -1,7 +1,24 @@
+@import'./constants.scss';
+
 .movie{
     &__header{
         height: 60vh;
         background-size: cover;
         background-position: center,center;
+    }
+    &__details{
+        background-color: $BACKGROUND_COLOR;
+        .container{
+            width: 80%;
+            padding: 50px;
+            h1{
+                color:$WHITE_COLOR;
+            }
+            p{
+                color:$LIGHT_COLOR;
+                font-size:20px;
+                font-weight: 900;
+            }
+        }
     }
 }
