@@ -1,9 +1,9 @@
 class Popular{
     constructor(rawData) {
-        this.vote = rawData.vote_average
+        this.vote = rawData.vote_average * 10 + '%';
         this.title = rawData.title;
         this.id = rawData.id;
-        this.poster_path = 'https://image.tmdb.org/t/p/w500/' + rawData.poster_path;
+        this.poster_path = 'https://image.tmdb.org/t/p/w500' + rawData.poster_path;
         this.release_year = rawData.release_date.slice(0, 4);
         this.release_month = this.calculateMonth(rawData.release_date.slice(5, 7));
     }
