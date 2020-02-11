@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 
 const CardList = props => {
-    console.log(props.popularMovies);
+    // console.log(props.popularMovies);
     return (
         <div className="container">
             <h1>Popular Movies</h1>

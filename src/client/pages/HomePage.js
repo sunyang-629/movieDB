@@ -4,25 +4,23 @@ import CardList from './../components/CardList'
 import axios from 'axios'
 
 const Popular = props => {
-    const [state, setState] = useState({
-        popularMovies: [],
-    })
+    const [popularMovies, setPopularMovies] = useState([]);
 
     const fetchPopularData = () => {
-        axios('http://localhost:3001/api/popular')
-            .then(res => setState({ popularMovies: res.data.data }) )
+        axios.get('http://localhost:3001/api/popular')
+            .then(res => setPopularMovies({ popularMovies: res.data.data }) )
             .catch(err => console.log(err))
     }
     
-    useEffect(fetchPopularData,[]);
-
+    useEffect(fetchPopularData, []);
+    
     return (
         <div className="popular">
             <header className="popular__header">
                 <Header />
             </header>
             <div className="popular__card-list">
-                <CardList {...state} />
+                <CardList {...popularMovies} />
             </div>
         </div>
     );
