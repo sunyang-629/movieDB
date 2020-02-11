@@ -9,11 +9,15 @@ const Popular = props => {
 
     const fetchPopularData = () => {
         axios.get(`http://localhost:3001/api/popular?page=${page}`)
-            .then(res => setPopularMovies(res.data.data))
+            .then(res => setPopularMovies([...popularMovies, res.data.data]))
             .catch(err => console.log(err))
     }
+
+    const loadMore = () => {
+        setPage(page + 1);
+    }
     
-    useEffect(fetchPopularData, []);
+    useEffect(fetchPopularData, [page]);
     
     return (
         <div className="popular">
@@ -23,6 +27,7 @@ const Popular = props => {
             <div className="popular__card-list">
                 <CardList popularMovies={popularMovies} />
             </div>
+            <a onClick={loadMore}>loadMore</a>
         </div>
     );
 }
