@@ -5,9 +5,10 @@ import axios from 'axios'
 
 const Popular = props => {
     const [popularMovies, setPopularMovies] = useState([]);
+    const [page, setPage] = useState(1);
 
     const fetchPopularData = () => {
-        axios.get('http://localhost:3001/api/popular')
+        axios.get(`http://localhost:3001/api/popular?page=${page}`)
             .then(res => setPopularMovies(res.data.data))
             .catch(err => console.log(err))
     }
