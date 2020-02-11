@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header'
 import CardList from './../components/CardList'
+import Button from './../components/Button'
 import axios from 'axios'
 
 const Popular = props => {
@@ -26,8 +27,10 @@ const Popular = props => {
             </header>
             <div className="popular__card-list">
                 <CardList popularMovies={popularMovies} />
+                <div className="button">
+                    <Button className="ui inverted green basic button" onClick={loadMore} value="Load More" />
+                </div>
             </div>
-            <a onClick={loadMore}>loadMore</a>
         </div>
     );
 }
