@@ -7,11 +7,12 @@ const api_key = process.env.api_key;
 const router = express.Router();
 
 router.get('/', (req, res) => {
+    const key_word= req.query.key_word
     axios({
         method: 'get',
         url: '/search/movie',
         params: {
-            sort_by: 'popularity.desc',
+            query: key_word,
             api_key: api_key
         }
     })
