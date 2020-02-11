@@ -13,7 +13,8 @@ router.get('/', (req, res, next) => {
         url: '/discover/movie',
         params: {
             sort_by: 'popularity.desc',
-            api_key: api_key
+            api_key: api_key,
+            page: 1
         }
     })
         .then(response => responseFormatter(res, 200, null, response.data.results.map(movie => new Popular(movie))))
