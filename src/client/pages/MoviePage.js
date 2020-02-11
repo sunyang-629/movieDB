@@ -12,14 +12,13 @@ const MoviePage = props => {
             .catch(err => console.log(err))
     }
 
-
     useEffect(fetchMovieData,[]);
 
     return (
         <div className="movie container">
             <header className="movie__header" style={{ backgroundImage: `url(${movie.backdrop_path})` }}>
                 <div className="back-arrow">
-                    <i class="arrow left icon"></i>
+                    <i className="arrow left icon" onClick={() => props.history.goBack()}></i>
                 </div>
             </header>
             <div className="movie__details">
