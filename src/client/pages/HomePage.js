@@ -8,7 +8,7 @@ const Popular = props => {
 
     const fetchPopularData = () => {
         axios.get('http://localhost:3001/api/popular')
-            .then(res => setPopularMovies({ popularMovies: res.data.data }) )
+            .then(res => setPopularMovies(res.data.data))
             .catch(err => console.log(err))
     }
     
@@ -20,7 +20,7 @@ const Popular = props => {
                 <Header />
             </header>
             <div className="popular__card-list">
-                <CardList {...popularMovies} />
+                <CardList popularMovies={popularMovies} />
             </div>
         </div>
     );
