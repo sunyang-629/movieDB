@@ -19,13 +19,6 @@ const Popular = props => {
         setPage(page + 1);
     }
 
-    const topFunction = () => {
-        document.body.animate({ scrollTop: 0 }, 1000); // For Safari
-        document.documentElement.animate({ scrollTop: 0 }, 1000); // For Chrome, Firefox, IE and Opera
-        // document.body.scrollTop = 0;
-        // document.documentElement.scrollTop = 0;
-    }
-    
     useEffect(fetchPopularData, [page]);
     
     return (
@@ -36,7 +29,7 @@ const Popular = props => {
             <div className="popular__card-list">
                 <CardList popularMovies={popularMovies} />
                 <div>
-                    <ScrollUpButton style={{"bottom":"120px"}} />
+                    <ScrollUpButton />
                 </div>
                 <div className="button--more">
                     <Button className="ui inverted green basic button" onClick={loadMore} value="Load More" />
