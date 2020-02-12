@@ -30,6 +30,7 @@ const Popular = props => {
 
     const fetchSearchData = (searchValue,page) => {
         setSearchState(true);
+        page === 1 ? setIsLoading(true) : setIsLoading(false);
         axios.get(`http://localhost:3001/api/search?key_word=${searchValue}&page=${page}`)
             .then(res => {
                 if (!searchValue)
@@ -45,6 +46,7 @@ const Popular = props => {
                         setSearchPage(1);
                         setSearchMovies([res.data.data]); 
                 }
+                    setIsLoading(false);
                     setPopularMovies([]); 
                 }
             })
