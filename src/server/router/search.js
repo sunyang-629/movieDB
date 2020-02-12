@@ -19,6 +19,8 @@ router.get('/', (req, res) => {
         }
     })
         .then(response => responseFormatter(res, 200, null, response.data.results.map(movie => new Popular(movie))))
+        // .then(response => {res.send(new Popular(response.data.results[16]))})
+        // .then(response => {res.send((response.data.results[16]))})
         .catch(err => res.send(err));
 })
 
