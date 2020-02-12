@@ -13,9 +13,9 @@ const Popular = props => {
     const [popularPage, setPopularPage] = useState(1);
     const [searchPage, setSearchPage] = useState(1);
 
-    const fetchPopularData = () => {
+    const fetchPopularData = page => {
         setSearchState(false);
-        axios.get(`http://localhost:3001/api/popular?page=${popularPage}`)
+        axios.get(`http://localhost:3001/api/popular?page=${page}`)
             .then(res => { setPopularMovies([...popularMovies, res.data.data]); setSearchMovies([]);setSearchPage(1) })
             .catch(err => console.log(err))
     }
@@ -25,7 +25,10 @@ const Popular = props => {
         axios.get(`http://localhost:3001/api/search?key_word=${searchValue}&page=${page}`)
             .then(res => {
                 if (!searchValue)
-                { fetchPopularData() }
+                {
+                    setPopularPage(1);
+                    fetchPopularData(1)
+                }
                 else {
                     if ( loadMoreState ) {
                         setSearchMovies([...searchMovies, res.data.data]);
@@ -34,8 +37,7 @@ const Popular = props => {
                         setSearchPage(1);
                         setSearchMovies([res.data.data]); 
                 }
-                    setPopularMovies([]);
-                    setPopularPage(1);
+                    setPopularMovies([]); 
                 }
             })
             .catch(err => console.log(err))
@@ -48,7 +50,9 @@ const Popular = props => {
         } setPopularPage(popularPage + 1);
     }
     
-    useEffect(fetchPopularData, [popularPage])
+    const callFetchPopularDate = () => fetchPopularData(popularPage)
+
+    useEffect(callFetchPopularDate, [popularPage])
 
     
 
@@ -62,7 +66,7 @@ const Popular = props => {
                 />
             </header>
             <div className="popular__card-list">
-                <CardList popularMovies={searchState ? searchMovies : popularMovies} />
+                <CardList searchState={searchState} popularMovies={searchState ? searchMovies : popularMovies} />
                 <div>
                     <ScrollUpButton />
                 </div>
