@@ -7,41 +7,62 @@ import axios from 'axios'
 
 const Popular = props => {
     const [popularMovies, setPopularMovies] = useState([]);
+    const [searchMovies, setSearchMovies] = useState([]);
     const [searchState, setSearchState] = useState(false);
-    const [page, setPage] = useState(1);
+    const [loadMoreState, setLoadMoreStat] = useState(false);
+    const [popularPage, setPopularPage] = useState(1);
+    const [searchPage, setSearchPage] = useState(1);
 
     const fetchPopularData = () => {
-        axios.get(`http://localhost:3001/api/popular?page=${page}`)
-            .then(res => setPopularMovies([...popularMovies, res.data.data]))
+        setSearchState(false);
+        axios.get(`http://localhost:3001/api/popular?page=${popularPage}`)
+            .then(res => { setPopularMovies([...popularMovies, res.data.data]); setSearchMovies([]);setSearchPage(1) })
             .catch(err => console.log(err))
     }
 
-    const fetchSearchDate = searchValue => {
-        axios.get(`http://localhost:3001/api/search?key_word=${searchValue}`)
+    const fetchSearchData = (searchValue,page) => {
+        setSearchState(true);
+        axios.get(`http://localhost:3001/api/search?key_word=${searchValue}&page=${page}`)
             .then(res => {
-                if (!searchState)
-                {
-                    setPopularMovies([]);
-                    setSearchState(true);
+                if (!searchValue)
+                { fetchPopularData() }
+                else {
+                    if ( loadMoreState ) {
+                        setSearchMovies([...searchMovies, res.data.data]);
+                        setLoadMoreStat(false);
+                    } else {
+                        setSearchPage(1);
+                        setSearchMovies([res.data.data]); 
                 }
-                setPopularMovies([...popularMovies, res.data.data])
+                    setPopularMovies([]);
+                    setPopularPage(1);
+                }
             })
             .catch(err => console.log(err))
     }
 
     const loadMore = () => {
-        setPage(page + 1);
+        if (searchState) {
+            setLoadMoreStat(true);
+            return setSearchPage(searchPage + 1)
+        } setPopularPage(popularPage + 1);
     }
-
-    useEffect(fetchPopularData, [page]);
     
+    useEffect(fetchPopularData, [popularPage])
+
+    
+
     return (
         <div className="popular">
-            <header className="popular__header" fetchSearchDate={fetchSearchDate}>
-                <Header />
+            <header className="popular__header">
+                <Header
+                    fetchSearchData={fetchSearchData}
+                    searchPage={searchPage}
+                    loadMoreState={loadMoreState}
+                />
             </header>
             <div className="popular__card-list">
-                <CardList popularMovies={popularMovies} />
+                <CardList popularMovies={searchState ? searchMovies : popularMovies} />
                 <div>
                     <ScrollUpButton />
                 </div>

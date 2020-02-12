@@ -7,7 +7,11 @@ const Header = props => {
     return (
         <div className="container">
             <img className="ui tiny centered fluid image" src={header} alt="logo" />
-            <Search />
+            <Search
+                fetchSearchData={props.fetchSearchData}
+                searchPage={props.searchPage}
+                loadMoreState={props.loadMoreState}
+            />
         </div>
     )
 }
