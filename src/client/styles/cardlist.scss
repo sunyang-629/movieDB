@@ -66,4 +66,14 @@
         bottom: 30px;
         right: 10px;
     }
+    .loader{
+        padding-top:30px;
+        .ui.segment{
+            height: 500px;
+            border: none;
+        }
+        .ui.dimmer{
+            background-color: $BACKGROUND_COLOR;
+        }
+    }
 };

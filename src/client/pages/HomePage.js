@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header'
 import CardList from './../components/CardList'
 import Button from './../components/Button'
+import Loader from './../components/Loader'
 import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 import axios from 'axios'
 
@@ -12,11 +13,18 @@ const Popular = props => {
     const [loadMoreState, setLoadMoreStat] = useState(false);
     const [popularPage, setPopularPage] = useState(1);
     const [searchPage, setSearchPage] = useState(1);
+    const [isLoading, setIsLoading] = useState(false);
 
     const fetchPopularData = page => {
         setSearchState(false);
+        page === 1 ? setIsLoading(true) : setIsLoading(false);
         axios.get(`http://localhost:3001/api/popular?page=${page}`)
-            .then(res => { setPopularMovies([...popularMovies, res.data.data]); setSearchMovies([]);setSearchPage(1) })
+            .then(res => {
+                setPopularMovies([...popularMovies, res.data.data]);
+                setSearchMovies([]);
+                setSearchPage(1);
+                setIsLoading(false)
+            })
             .catch(err => console.log(err))
     }
 
@@ -66,14 +74,15 @@ const Popular = props => {
                 />
             </header>
             <div className="popular__card-list">
-                <CardList searchState={searchState} popularMovies={searchState ? searchMovies : popularMovies} />
-                <div>
-                    <ScrollUpButton />
-                </div>
-                <div className="button--more">
-                    <Button className="ui inverted green basic button" onClick={loadMore} value="Load More" />
-                </div>
-            </div>
+                {isLoading ? <div className="loader"><Loader /></div> :
+                    <CardList searchState={searchState} popularMovies={searchState ? searchMovies : popularMovies} />}
+                    <div>
+                        <ScrollUpButton />
+                    </div>
+                    <div className="button--more">
+                        <Button className="ui inverted green basic button" onClick={loadMore} value="Load More" />
+                    </div>
+            </div> 
         </div>
     );
 }
