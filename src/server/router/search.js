@@ -7,13 +7,14 @@ const api_key = process.env.api_key;
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    const key_word= req.query.key_word
+    const { key_word, page }= req.query
     axios({
         method: 'get',
         url: '/search/movie',
         params: {
             query: key_word,
-            api_key: api_key
+            api_key: api_key,
+            page: page,
         }
     })
         .then(response => res.send(response.data.results.map(movie => new Popular(movie))))

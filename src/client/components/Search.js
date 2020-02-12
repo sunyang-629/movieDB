@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 
 const Search = props => {
-    const [search, setSearch] = useState(null);
+    const [searchValue, setSearchValue] = useState(null);
 
-    const handleOnChange = e => setSearch(e.target.value);
+    const handleOnChange = e => setSearchValue(e.target.value);
+
+    const callSearchFunction = () => props.search(searchValue);
 
     return (
         <div className="ui search popular__header--search centered">

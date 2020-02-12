@@ -7,11 +7,25 @@ import axios from 'axios'
 
 const Popular = props => {
     const [popularMovies, setPopularMovies] = useState([]);
+    const [searchState, setSearchState] = useState(false);
     const [page, setPage] = useState(1);
 
     const fetchPopularData = () => {
         axios.get(`http://localhost:3001/api/popular?page=${page}`)
             .then(res => setPopularMovies([...popularMovies, res.data.data]))
+            .catch(err => console.log(err))
+    }
+
+    const fetchSearchDate = searchValue => {
+        axios.get(`http://localhost:3001/api/search?key_word=${searchValue}`)
+            .then(res => {
+                if (!searchState)
+                {
+                    setPopularMovies([]);
+                    setSearchState(true);
+                }
+                setPopularMovies([...popularMovies, res.data.data])
+            })
             .catch(err => console.log(err))
     }
 
@@ -23,7 +37,7 @@ const Popular = props => {
     
     return (
         <div className="popular">
-            <header className="popular__header">
+            <header className="popular__header" fetchSearchDate={fetchSearchDate}>
                 <Header />
             </header>
             <div className="popular__card-list">
