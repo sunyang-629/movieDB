@@ -11,7 +11,10 @@ const MoviePage = props => {
     const fetchMovieData = () => {
         setIsLoading(true);
         axios.get(`http://localhost:3001/api/movies/${id}`)
-            .then(res => { setMovie(res.data.data); setIsLoading(false) })
+            .then(res => {
+                setMovie(res.data.data);
+                setIsLoading(false)
+            })
             .catch(err => console.log(err))
     }
 

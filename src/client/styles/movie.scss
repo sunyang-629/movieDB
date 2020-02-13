@@ -1,6 +1,15 @@
 @import'./constants.scss';
 
 .movie{
+    .loading{
+        .ui.segment{
+            border: none;
+            height: 600px;
+        }
+        .ui.dimmer{
+            background-color: $BACKGROUND_COLOR;
+        }
+    }
     &__header{
         @media only screen and (max-width: $largestMobileScreen) {
             height: 250px;
