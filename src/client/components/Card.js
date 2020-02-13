@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-const Card = props => {
+const Card = (props) => {
     const { title, release_month, release_year, poster_path, vote, id } = props.movie;
     return (
         <div className="popular__card-list__card">
