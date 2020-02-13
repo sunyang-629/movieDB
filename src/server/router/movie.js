@@ -7,7 +7,7 @@ const responseFormatter = require('./../utils/responseFormatter')
 const api_key = process.env.api_key;
 const router = express.Router()
 
-router.get('/:id',(req, res) => {
+router.get('/:id',(req, res, next) => {
     const id = req.params.id;
     axios({
         method: 'get',
@@ -18,7 +18,7 @@ router.get('/:id',(req, res) => {
     })
         // .then(response => res.send(response.data))
         .then(response => responseFormatter(res, 200, null, new Movie(response)))
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 module.exports = router;

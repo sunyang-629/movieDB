@@ -82,7 +82,7 @@ const Popular = props => {
                         <ScrollUpButton />
                     </div>
                     <div className="button--more">
-                        <Button className="ui inverted green basic button" onClick={loadMore} value="Load More" />
+                        <Button onClick={loadMore} value="Load More" />
                     </div>
             </div> 
         </div>
