@@ -60,9 +60,9 @@ const Popular = props => {
         } setPopularPage(popularPage + 1);
     }
     
-    const callFetchPopularDate = () => fetchPopularData(popularPage)
+    const callFetchPopularData = () => fetchPopularData(popularPage)
 
-    useEffect(callFetchPopularDate, [popularPage])
+    useEffect(callFetchPopularData, [popularPage])
 
     
 
