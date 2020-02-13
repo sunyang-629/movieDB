@@ -4,11 +4,12 @@ const morgan = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 
+const logger = require('./utils/logger');
 const routes = require('./routes');
 const notFoundHandler = require('./middleware/notFound');
 const errorHandler = require('./middleware/errorHandler');
 
-const PORT = process.env.port || 3000;
+const PORT = process.env.port || 3001;
 
 const app = express();
 
@@ -21,5 +22,5 @@ app.use(errorHandler);
 app.use(notFoundHandler); 
 
 app.listen(PORT, () => {
-    console.log(`movie app has started at port ${PORT}`);
+    logger.info(`movie app has started at port ${PORT}`);
 })
