@@ -13,4 +13,15 @@
         align-items: center;
         justify-content: center;
     }
+    &__body{
+        padding-top: 50px;
+        background: $BACKGROUND_COLOR;
+        color: $WHITE_COLOR;
+        height: 500px;
+        .container {
+            width: 80%;        
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 }
