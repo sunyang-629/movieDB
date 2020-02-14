@@ -1,9 +1,11 @@
+const { POSTER_URL, BACKDROP_URL } = require('../utils/constants');
+
 class Movie {
   constructor(rawData) {
     const { data } = rawData;
     this.title = data.title;
-    this.poster_path = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
-    this.backdrop_path = `https://image.tmdb.org/t/p/w1280${data.backdrop_path}`;
+    this.poster_path = `${POSTER_URL}${data.poster_path}`;
+    this.backdrop_path = `${BACKDROP_URL}${data.backdrop_path}`;
     this.overview = data.overview;
     this.id = data.id;
     this.release_year = data.release_date.slice(0, 4);
