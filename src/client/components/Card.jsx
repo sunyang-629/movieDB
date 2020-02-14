@@ -16,8 +16,9 @@ const Card = (props) => {
       </div>
       <h4>{movie.title}</h4>
       <p>
-        {movie.releaseMonth}
-        {movie.releaseYear}
+        <span>{movie.releaseMonth}</span>
+        <span> </span>
+        <span>{movie.releaseYear}</span>
       </p>
     </div>
   );
