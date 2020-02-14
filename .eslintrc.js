@@ -23,6 +23,6 @@ module.exports = {
     'react',
   ],
   rules: {
-
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
   },
 };
