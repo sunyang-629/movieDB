@@ -31,6 +31,6 @@ Search.propTypes = {
 Search.defaultProps = {
   searchPage: 1,
   loadMoreState: false,
-  fetchSearchData: () => { },
+  fetchSearchData: () => {},
 };
 export default Search;
