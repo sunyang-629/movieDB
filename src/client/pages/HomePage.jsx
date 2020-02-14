@@ -36,7 +36,7 @@ const Popular = () => {
   const fetchSearchData = (searchValue, page) => {
     setSearchState(true);
     toggleLoadingState(page);
-    axios.get(`http://localhost:3001/api/search?key_word=${searchValue}&page=${page}`)
+    axios.get(`http://localhost:3001/api/search?keyword=${searchValue}&page=${page}`)
       .then((res) => {
         if (!searchValue) {
           setPopularPage(1);
