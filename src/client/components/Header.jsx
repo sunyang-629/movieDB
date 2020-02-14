@@ -8,11 +8,15 @@ const Header = (props) => {
   return (
     <div className="container">
       <img className="ui tiny centered fluid image" src={header} alt="logo" />
-      <Search
-        fetchSearchData={fetchSearchData}
-        searchPage={searchPage}
-        loadMoreState={loadMoreState}
-      />
+      {searchPage
+        ? (
+          <Search
+            fetchSearchData={fetchSearchData}
+            searchPage={searchPage}
+            loadMoreState={loadMoreState}
+          />
+        )
+        : null}
     </div>
   );
 };
