@@ -1,4 +1,4 @@
-@import'./constants.scss';
+@import'./variables.scss';
 
 .movie{
     .loading{
@@ -11,10 +11,10 @@
         }
     }
     &__header{
-        @media only screen and (max-width: $largestMobileScreen) {
+        @media only screen and (max-width: $LARGEST_MOBILE_SCREEN) {
             height: 250px;
           }
-        @media only screen and (min-width: $largestMobileScreen) {
+        @media only screen and (min-width: $LARGEST_MOBILE_SCREEN) {
             height: 400px;
           }
         background-size: cover;
@@ -42,28 +42,28 @@
             h1{
                 color:$WHITE_COLOR;
                 margin-bottom: 6vw;
-                @media only screen and (max-width: $largestMobileScreen) {
+                @media only screen and (max-width: $LARGEST_MOBILE_SCREEN) {
                     font-size: 5.5vw;
                   }
-                @media only screen and (min-width: $largestMobileScreen) {
+                @media only screen and (min-width: $LARGEST_MOBILE_SCREEN) {
                     font-size: 3vw;
                   }
             }
             h2{
                 color:$WHITE_COLOR;
-                @media only screen and (max-width: $largestMobileScreen) {
+                @media only screen and (max-width: $LARGEST_MOBILE_SCREEN) {
                     font-size: 4vw;
                   }
-                @media only screen and (min-width: $largestMobileScreen) {
+                @media only screen and (min-width: $LARGEST_MOBILE_SCREEN) {
                     font-size: 2.4vw;
                   }   
             }
             p{
                 color:$LIGHT_COLOR;
-                @media only screen and (max-width: $largestMobileScreen) {
+                @media only screen and (max-width: $LARGEST_MOBILE_SCREEN) {
                     font-size: 3vw;
                   }
-                @media only screen and (min-width: $largestMobileScreen) {
+                @media only screen and (min-width: $LARGEST_MOBILE_SCREEN) {
                     font-size: 1.5vw;
                   }
                 margin-bottom: 0;
