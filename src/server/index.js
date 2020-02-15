@@ -6,8 +6,8 @@ require('dotenv').config();
 
 const logger = require('./utils/logger');
 const routes = require('./routes');
-const notFoundHandler = require('./middleware/notFound');
-const errorHandler = require('./middleware/errorHandler');
+const notFoundHandler = require('./middlewares/notFound');
+const errorHandler = require('./middlewares/errorHandler');
 
 const PORT = process.env.PORT || 3001;
 

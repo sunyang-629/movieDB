@@ -1,4 +1,4 @@
-const responseFormatter = require('./../utils/responseFormatter');
+const responseFormatter = require('../utils/responseFormatter');
 
 module.exports = (error, req, res, next) => {
   const { status, data } = error.response;
