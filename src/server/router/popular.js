@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('./../utils/axios');
 
-const Popular = require('./../models/Popular');
+const MovieList = require('./../models/MovieList');
 const responseFormatter = require('./../utils/responseFormatter');
 
 const { API_KEY: apiKey } = process.env;
@@ -22,7 +22,7 @@ router.get('/', (req, res, next) => {
       res,
       200,
       null,
-      response.data.results.map((movie) => new Popular(movie)),
+      response.data.results.map((movie) => new MovieList(movie)),
     ))
     .catch((err) => next(err));
 });
