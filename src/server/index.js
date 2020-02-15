@@ -17,7 +17,7 @@ app.use(helmet());
 app.use(morgan('dev'));
 app.use(cors());
 
-app.use('/api', routes);
+app.use('/api/v1', routes);
 app.use(errorHandler);
 app.use(notFoundHandler);
 

@@ -24,7 +24,7 @@ const Popular = () => {
   const fetchPopularData = (page) => {
     setSearchState(false);
     toggleLoadingState(page);
-    axios.get(`http://localhost:3001/api/popular?page=${page}`)
+    axios.get(`http://localhost:3001/api/v1/movies?page=${page}`)
       .then((res) => {
         setPopularMovies([...popularMovies, res.data.data]);
         setSearchMovies([]);
@@ -41,7 +41,7 @@ const Popular = () => {
       setPopularPage(initialPage);
       fetchPopularData(initialPage);
     } else {
-      axios.get(`http://localhost:3001/api/search?keyword=${searchValue}&page=${page}`)
+      axios.get(`http://localhost:3001/api/v1/movies?keyword=${searchValue}&page=${page}`)
         .then((res) => {
           if (loadMoreState) {
             setSearchMovies([...searchMovies, res.data.data]);
