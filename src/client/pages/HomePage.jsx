@@ -7,12 +7,13 @@ import Button from '../components/Button';
 import Loader from '../components/Loader';
 
 const Popular = () => {
+  const initialPage = 1;
   const [popularMovies, setPopularMovies] = useState([]);
   const [searchMovies, setSearchMovies] = useState([]);
   const [searchState, setSearchState] = useState(false);
   const [loadMoreState, setLoadMoreStat] = useState(false);
-  const [popularPage, setPopularPage] = useState(1);
-  const [searchPage, setSearchPage] = useState(1);
+  const [popularPage, setPopularPage] = useState(initialPage);
+  const [searchPage, setSearchPage] = useState(initialPage);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -27,7 +28,7 @@ const Popular = () => {
       .then((res) => {
         setPopularMovies([...popularMovies, res.data.data]);
         setSearchMovies([]);
-        setSearchPage(1);
+        setSearchPage(initialPage);
         setIsLoading(false);
       })
       .catch(() => setHasError(true));
@@ -37,8 +38,8 @@ const Popular = () => {
     setSearchState(true);
     toggleLoadingState(page);
     if (!searchValue) {
-      setPopularPage(1);
-      fetchPopularData(1);
+      setPopularPage(initialPage);
+      fetchPopularData(initialPage);
     } else {
       axios.get(`http://localhost:3001/api/search?keyword=${searchValue}&page=${page}`)
         .then((res) => {
@@ -46,7 +47,7 @@ const Popular = () => {
             setSearchMovies([...searchMovies, res.data.data]);
             setLoadMoreStat(false);
           } else {
-            setSearchPage(1);
+            setSearchPage(initialPage);
             setSearchMovies([res.data.data]);
           }
           setIsLoading(false);
@@ -59,8 +60,8 @@ const Popular = () => {
   const loadMore = () => {
     if (searchState) {
       setLoadMoreStat(true);
-      return setSearchPage(searchPage + 1);
-    } return setPopularPage(popularPage + 1);
+      return setSearchPage((prevSearchPage) => prevSearchPage + 1);
+    } return setPopularPage((prevPopularPage) => prevPopularPage + 1);
   };
 
   const callFetchPopularData = () => fetchPopularData(popularPage);
