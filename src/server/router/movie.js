@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('./../utils/axios');
 
-const Movie = require('./../models/Movie');
+const MovieDetail = require('../models/MovieDetail');
 const responseFormatter = require('./../utils/responseFormatter');
 
 const { API_KEY: apiKey } = process.env;
@@ -16,7 +16,7 @@ router.get('/:id', (req, res, next) => {
       api_key: apiKey,
     },
   })
-    .then((response) => responseFormatter(res, 200, null, new Movie(response)))
+    .then((response) => responseFormatter(res, 200, null, new MovieDetail(response)))
     .catch((err) => next(err));
 });
 

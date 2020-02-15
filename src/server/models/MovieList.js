@@ -4,7 +4,7 @@ const calculateMonth = (month) => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   return months[parseInt(month, 10) - 1];
 };
-class Popular {
+class MovieList {
   constructor(rawData) {
     this.vote = (rawData.vote_average || 0) * 10;
     this.title = rawData.title.toString();
@@ -15,4 +15,4 @@ class Popular {
   }
 }
 
-module.exports = Popular;
+module.exports = MovieList;

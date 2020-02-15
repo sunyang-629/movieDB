@@ -1,6 +1,6 @@
 const { POSTER_URL, BACKDROP_URL } = require('../utils/constants');
 
-class Movie {
+class MovieDetail {
   constructor(rawData) {
     const { data } = rawData;
     this.title = data.title;
@@ -15,4 +15,4 @@ class Movie {
   }
 }
 
-module.exports = Movie;
+module.exports = MovieDetail;
