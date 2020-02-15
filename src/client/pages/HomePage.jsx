@@ -21,7 +21,6 @@ const Popular = () => {
   };
 
   const fetchPopularData = (pagenum) => {
-    console.log('fecth');
     if (page.searchPage > 1) {
       return setPage((prevPage) => ({ popularPage: initialPage, searchPage: prevPage.searchPage}));
     }
@@ -31,7 +30,6 @@ const Popular = () => {
       .then((res) => {
         setPopularMovies([...popularMovies, res.data.data]);
         setSearchMovies([]);
-        // setPage({ ...page, searchPage: initialPage });
         setIsLoading(false);
       })
       .catch(() => setHasError(true));
@@ -41,7 +39,7 @@ const Popular = () => {
     setSearchState(true);
     toggleLoadingState(pagenum);
     if (!searchValue) {
-      console.log('object');
+      setPage({ popularPage: initialPage, searchPage: initialPage });
       fetchPopularData(initialPage);
     } else {
       axios.get(`http://localhost:3001/api/search?keyword=${searchValue}&page=${pagenum}`)
@@ -70,7 +68,7 @@ const Popular = () => {
 
   const callFetchPopularData = () => fetchPopularData(page.popularPage);
 
-  useEffect(callFetchPopularData, [page]);
+  useEffect(callFetchPopularData, [page.popularPage]);
 
 
   return (
