@@ -22,17 +22,18 @@ const Popular = () => {
 
   const fetchPopularData = (pagenum) => {
     if (page.searchPage > 1) {
-      return setPage((prevPage) => ({ popularPage: initialPage, searchPage: prevPage.searchPage}));
+      setPage((prevPage) => ({ popularPage: initialPage, searchPage: prevPage.searchPage }));
+    } else {
+      setSearchState(false);
+      toggleLoadingState(pagenum);
+      axios.get(`http://localhost:3001/api/v1/movies?page=${pagenum}`)
+        .then((res) => {
+          setPopularMovies([...popularMovies, res.data.data]);
+          setSearchMovies([]);
+          setIsLoading(false);
+        })
+        .catch(() => setHasError(true));
     }
-    setSearchState(false);
-    toggleLoadingState(pagenum);
-    axios.get(`http://localhost:3001/api/v1/movies?page=${pagenum}`)
-      .then((res) => {
-        setPopularMovies([...popularMovies, res.data.data]);
-        setSearchMovies([]);
-        setIsLoading(false);
-      })
-      .catch(() => setHasError(true));
   };
 
   const fetchSearchData = (searchValue, pagenum) => {
@@ -61,9 +62,15 @@ const Popular = () => {
   const loadMore = () => {
     if (searchState) {
       setLoadMoreStat(true);
-      return setPage((prevPage) => ({ popularPage: initialPage, searchPage: prevPage.searchPage + 1 }));
+      return setPage((prevPage) => ({
+        popularPage: initialPage,
+        searchPage: prevPage.searchPage + 1,
+      }));
     }
-    return setPage((prevPage) => ({ popularPage: prevPage.popularPage + 1,  searchPage: initialPage}));
+    return setPage((prevPage) => ({
+      popularPage: prevPage.popularPage + 1,
+      searchPage: initialPage,
+    }));
   };
 
   const callFetchPopularData = () => fetchPopularData(page.popularPage);

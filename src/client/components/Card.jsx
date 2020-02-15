@@ -2,23 +2,27 @@ import React from 'react';
 import PropType from 'prop-types';
 
 const Card = (props) => {
-  const { movie } = props;
+  const {
+    movie: {
+      id, releaseMonth, releaseYear, posterPath, vote, title,
+    },
+  } = props;
   return (
     <div className="card">
-      <a href={`/movies/${movie.id}`}>
-        <img className="ui medium image" src={movie.posterPath} alt="poster" />
+      <a href={`/movies/${id}`}>
+        <img className="ui medium image" src={posterPath} alt="poster" />
       </a>
-      <div className={`label ${movie.vote >= 80 ? 'label--high' : `${movie.vote >= 60 ? 'label--medium' : 'label--low'}`}`}>
+      <div className={`label ${vote >= 80 ? 'label--high' : `${vote >= 60 ? 'label--medium' : 'label--low'}`}`}>
         <p>
-          {movie.vote}
+          {vote}
           %
         </p>
       </div>
-      <h4>{movie.title}</h4>
+      <h4>{title}</h4>
       <p>
-        <span>{movie.releaseMonth}</span>
+        <span>{releaseMonth}</span>
         <span> </span>
-        <span>{movie.releaseYear}</span>
+        <span>{releaseYear}</span>
       </p>
     </div>
   );
