@@ -4,7 +4,7 @@ import PropType from 'prop-types';
 const Card = (props) => {
   const { movie } = props;
   return (
-    <div className="popular__card-list__card">
+    <div className="card">
       <a href={`/movies/${movie.id}`}>
         <img className="ui medium image" src={movie.posterPath} alt="poster" />
       </a>

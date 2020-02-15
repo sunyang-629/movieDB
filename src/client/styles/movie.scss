@@ -2,11 +2,11 @@
 
 .movie{
     .loading{
-        .ui.segment{
+        &__segment{
             border: none;
             height: 600px;
         }
-        .ui.dimmer{
+        &__dimmer{
             background-color: $BACKGROUND_COLOR;
         }
     }
@@ -33,7 +33,7 @@
     }
     &__details{
         background-color: $BACKGROUND_COLOR;
-        &--bolder{
+        .bolder{
             font-weight: 900;
         };
         .container{

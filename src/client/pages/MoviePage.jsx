@@ -64,7 +64,7 @@ const MoviePage = (props) => {
                   </div>
                   <div className="six wide column">
                     <h2>Overview</h2>
-                    <p className="movie__details--bolder">{movie && movie.overview}</p>
+                    <p className="bolder">{movie && movie.overview}</p>
                   </div>
                 </div>
               </div>

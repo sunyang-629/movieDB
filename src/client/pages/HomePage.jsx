@@ -78,7 +78,7 @@ const Popular = () => {
         />
       </header>
       <div className="popular__card-list">
-        {isLoading ? <div className="loader"><Loader /></div>
+        {isLoading ? <div className="loading"><Loader /></div>
           : (
             <CardList
               searchState={searchState}

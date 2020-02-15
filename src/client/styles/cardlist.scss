@@ -11,7 +11,7 @@
             color:$WHITE_COLOR;
         }
     }
-    &__card{
+    .card{
         img{
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.4) 1.3rem 0.7rem 0.7rem;
@@ -66,13 +66,13 @@
         bottom: 30px;
         right: 10px;
     }
-    .loader{
+    .loading{
         padding-top:30px;
-        .ui.segment{
+        &__segment{
             height: 500px;
             border: none;
         }
-        .ui.dimmer{
+        &__dimmer{
             background-color: $BACKGROUND_COLOR;
         }
     }
