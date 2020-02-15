@@ -12,42 +12,45 @@ const Popular = () => {
   const [searchMovies, setSearchMovies] = useState([]);
   const [searchState, setSearchState] = useState(false);
   const [loadMoreState, setLoadMoreStat] = useState(false);
-  const [popularPage, setPopularPage] = useState(initialPage);
-  const [searchPage, setSearchPage] = useState(initialPage);
+  const [page, setPage] = useState({ popularPage: initialPage, searchPage: initialPage });
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  const toggleLoadingState = (page) => {
-    if (page === 1) { setIsLoading(true); } else { setIsLoading(false); }
+  const toggleLoadingState = (pagenum) => {
+    if (pagenum === 1) { setIsLoading(true); } else { setIsLoading(false); }
   };
 
-  const fetchPopularData = (page) => {
+  const fetchPopularData = (pagenum) => {
+    console.log('fecth');
+    if (page.searchPage > 1) {
+      return setPage((prevPage) => ({ popularPage: initialPage, searchPage: prevPage.searchPage}));
+    }
     setSearchState(false);
-    toggleLoadingState(page);
-    axios.get(`http://localhost:3001/api/popular?page=${page}`)
+    toggleLoadingState(pagenum);
+    axios.get(`http://localhost:3001/api/popular?page=${pagenum}`)
       .then((res) => {
         setPopularMovies([...popularMovies, res.data.data]);
         setSearchMovies([]);
-        setSearchPage(initialPage);
+        // setPage({ ...page, searchPage: initialPage });
         setIsLoading(false);
       })
       .catch(() => setHasError(true));
   };
 
-  const fetchSearchData = (searchValue, page) => {
+  const fetchSearchData = (searchValue, pagenum) => {
     setSearchState(true);
-    toggleLoadingState(page);
+    toggleLoadingState(pagenum);
     if (!searchValue) {
-      setPopularPage(initialPage);
+      console.log('object');
       fetchPopularData(initialPage);
     } else {
-      axios.get(`http://localhost:3001/api/search?keyword=${searchValue}&page=${page}`)
+      axios.get(`http://localhost:3001/api/search?keyword=${searchValue}&page=${pagenum}`)
         .then((res) => {
           if (loadMoreState) {
             setSearchMovies([...searchMovies, res.data.data]);
             setLoadMoreStat(false);
           } else {
-            setSearchPage(initialPage);
+            setPage({ ...page, searchPage: initialPage });
             setSearchMovies([res.data.data]);
           }
           setIsLoading(false);
@@ -60,13 +63,14 @@ const Popular = () => {
   const loadMore = () => {
     if (searchState) {
       setLoadMoreStat(true);
-      return setSearchPage((prevSearchPage) => prevSearchPage + 1);
-    } return setPopularPage((prevPopularPage) => prevPopularPage + 1);
+      return setPage((prevPage) => ({ popularPage: initialPage, searchPage: prevPage.searchPage + 1 }));
+    }
+    return setPage((prevPage) => ({ popularPage: prevPage.popularPage + 1,  searchPage: initialPage}));
   };
 
-  const callFetchPopularData = () => fetchPopularData(popularPage);
+  const callFetchPopularData = () => fetchPopularData(page.popularPage);
 
-  useEffect(callFetchPopularData, [popularPage]);
+  useEffect(callFetchPopularData, [page]);
 
 
   return (
@@ -74,8 +78,9 @@ const Popular = () => {
       <header className="popular__header">
         <Header
           fetchSearchData={fetchSearchData}
-          searchPage={searchPage}
+          // searchPage={searchPage}
           loadMoreState={loadMoreState}
+          searchPage={page.searchPage}
         />
       </header>
       <div className="popular__card-list">
