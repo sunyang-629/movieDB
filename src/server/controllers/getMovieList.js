@@ -6,7 +6,6 @@ const responseFormatter = require('../utils/responseFormatter');
 
 const getMovieList = (req, res, next) => {
   const { keyword, page } = req.query;
-  console.log(keyword,page);
   let List;
   if (keyword && page) {
     List = axios.get(`/search/movie?query=${keyword}&api_key=${apiKey}&page=${page}`);
