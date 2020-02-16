@@ -15,6 +15,7 @@ const Popular = () => {
   const [popularPage, setPopularPage] = useState(initialPage);
   const [searchPage, setSearchPage] = useState(initialPage);
   const [isLoading, setIsLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const toggleLoadingState = (page) => {
     if (page === 1) { setIsLoading(true); } else { setIsLoading(false); }
