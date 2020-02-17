@@ -12,9 +12,15 @@ const Popular = () => {
   const [searchMovies, setSearchMovies] = useState([]);
   const [searchState, setSearchState] = useState(false);
   const [loadMoreState, setLoadMoreStat] = useState(false);
-  const [page, setPage] = useState({ popularPage: initialPage, searchPage: initialPage });
   const [isLoading, setIsLoading] = useState(false);
-  // const [hasError, setHasError] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  const [page, setPage] = useState({ popularPage: initialPage, searchPage: initialPage });
+  useEffect(() => {
+    const callFetchPopularData = () => fetchPopularData(page.popularPage);
+    callFetchPopularData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page.popularPage]);
 
   const toggleLoadingState = (pagenum) => {
     if (pagenum === 1) { setIsLoading(true); } else { setIsLoading(false); }
@@ -72,11 +78,6 @@ const Popular = () => {
       searchPage: initialPage,
     }));
   };
-
-  const callFetchPopularData = () => fetchPopularData(page.popularPage);
-
-  useEffect(callFetchPopularData, [page.popularPage]);
-
 
   return (
     <div className="popular">
