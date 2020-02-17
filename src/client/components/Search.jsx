@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropType from 'prop-types';
+import { FetchSearchContext } from './../pages/HomePage';
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState(null);
-  const { searchPage, loadMoreState, fetchSearchData } = props;
+  const { searchPage } = props;
+  const { fetchSearchData, loadMoreState } = useContext(FetchSearchContext);
 
   const handleOnChange = (e) => setSearchValue(e.target.value);
 
