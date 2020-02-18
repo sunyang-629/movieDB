@@ -84,6 +84,7 @@ const Popular = () => {
       <header className="popular__header">
         <Header
           fetchSearchData={fetchSearchData}
+          // searchPage={searchPage}
           loadMoreState={loadMoreState}
           searchPage={page.searchPage}
         />
