@@ -4,16 +4,15 @@ import header from './images/Logo.svg';
 import Search from './Search';
 
 const Header = (props) => {
-  const { fetchSearchData, searchPage, loadMoreState } = props;
+  // const { fetchSearchData, searchPage, loadMoreState } = props;
+  const { searchPage, loadMoreState } = props;
   return (
     <div className="container">
       <img className="ui tiny centered fluid image" src={header} alt="logo" />
       {searchPage
         ? (
           <Search
-            fetchSearchData={fetchSearchData}
             searchPage={searchPage}
-            loadMoreState={loadMoreState}
           />
         )
         : null}

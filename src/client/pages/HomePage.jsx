@@ -6,6 +6,8 @@ import CardList from '../components/CardList';
 import Button from '../components/Button';
 import Loader from '../components/Loader';
 
+export const FetchSearchContext = React.createContext();
+
 const Popular = () => {
   const initialPage = 1;
   const [popularMovies, setPopularMovies] = useState([]);
@@ -82,11 +84,11 @@ const Popular = () => {
   return (
     <div className="popular">
       <header className="popular__header">
-        <Header
-          fetchSearchData={fetchSearchData}
-          loadMoreState={loadMoreState}
+        <FetchSearchContext.Provider value={{fetchSearchData,loadMoreState}} >
+          <Header
           searchPage={page.searchPage}
-        />
+          />
+        </FetchSearchContext.Provider>
       </header>
       <div className="popular__card-list">
         {isLoading ? <div className="loading"><Loader /></div>
