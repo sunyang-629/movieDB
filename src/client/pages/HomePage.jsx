@@ -83,13 +83,11 @@ const Popular = () => {
 
   return (
     <div className="popular">
-      <header className="popular__header">
-        <FetchSearchContext.Provider value={{fetchSearchData,loadMoreState}} >
-          <Header
-          searchPage={page.searchPage}
-          />
-        </FetchSearchContext.Provider>
-      </header>
+      <FetchSearchContext.Provider value={{fetchSearchData,loadMoreState}} >
+        <Header
+        searchPage={page.searchPage}
+        />
+      </FetchSearchContext.Provider>
       <div className="popular__card-list">
         {isLoading ? <div className="loading"><Loader /></div>
           : (
