@@ -3,7 +3,7 @@ import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import axios from 'axios';
 import Header from '../components/Header';
 import CardList from '../components/CardList';
-import Button from '../components/Button';
+import LoadMoreButton from '../components/LoadMoreButton';
 import Loader from '../components/Loader';
 
 export const FetchSearchContext = React.createContext();
@@ -99,7 +99,7 @@ const Popular = () => {
         }
         <ScrollUpButton />
         <div className="button--more">
-          <Button onClick={loadMore} value="Load More" />
+          <LoadMoreButton onClick={loadMore} value="Load More" />
         </div>
       </div>
     </div>
