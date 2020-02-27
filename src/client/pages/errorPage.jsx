@@ -3,9 +3,7 @@ import Header from '../components/Header';
 
 const ErrorPage = () => (
   <div className="error">
-    <header className="error__header">
-      <Header searchPage={0} />
-    </header>
+    <Header searchPage={0} />
     <div className="error__body">
       <div className="container">
         <h1>Sorry, the page you are looking for does not exist</h1>
