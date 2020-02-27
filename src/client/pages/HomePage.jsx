@@ -97,9 +97,7 @@ const Popular = () => {
               : popularMovies}
           />
         }
-        <div>
-          <ScrollUpButton />
-        </div>
+        <ScrollUpButton />
         <div className="button--more">
           <Button onClick={loadMore} value="Load More" />
         </div>
