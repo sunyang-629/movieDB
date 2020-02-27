@@ -89,15 +89,14 @@ const Popular = () => {
         />
       </FetchSearchContext.Provider>
       <div className="popular__card-list">
-        {isLoading ? <div className="loading"><Loader /></div>
-          : (
-            <CardList
-              searchState={searchState}
-              popularMovies={searchState
-                ? searchMovies
-                : popularMovies}
-            />
-          )}
+        {isLoading ? <Loader />
+          : <CardList
+            searchState={searchState}
+            popularMovies={searchState
+              ? searchMovies
+              : popularMovies}
+          />
+        }
         <div>
           <ScrollUpButton />
         </div>
