@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropType from 'prop-types';
-import { FetchSearchContext } from './../pages/HomePage';
+import { FetchSearchContext } from '../../pages/HomePage';
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState(null);

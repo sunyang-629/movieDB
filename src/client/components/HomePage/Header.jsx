@@ -1,10 +1,10 @@
 import React from 'react';
 import PropType from 'prop-types';
-import header from './images/Logo.svg';
+import header from '../images/Logo.svg';
 import Search from './Search';
 
 const Header = (props) => {
-  const { searchPage, loadMoreState } = props;
+  const { searchPage } = props;
   return (
     <header className="popular__header">
       <div className="container">

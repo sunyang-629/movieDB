@@ -1,14 +1,12 @@
 import React from 'react';
-import Header from '../components/Header';
-import Error from '../components/Error';
+import Header from '../components/HomePage/Header';
+import Error from '../components/PublicPage/Error';
 
-const ErrorPage = () => {
-  return (
-    <div className="error">
-      <Header searchPage={0} />
-      <Error />
-    </div>
-  )
-};
+const ErrorPage = () => (
+  <div className="error">
+    <Header searchPage={0} />
+    <Error />
+  </div>
+);
 
 export default ErrorPage;

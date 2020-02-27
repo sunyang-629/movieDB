@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropType from 'prop-types';
 import axios from 'axios';
-import Loader from '../components/Loader';
+import Loader from '../components/PublicPage/Loader';
 
 const MoviePage = (props) => {
   const [movie, setMovie] = useState({});
