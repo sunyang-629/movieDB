@@ -8,7 +8,7 @@ const Header = (props) => {
         <i className="arrow left icon" />
       </div>
     </header>
-  )
-}
+  );
+};
 
 export default Header;
