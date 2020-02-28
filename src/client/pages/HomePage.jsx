@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import axios from 'axios';
-import Header from '../components/Header';
-import CardList from '../components/CardList';
-import Button from '../components/Button';
-import Loader from '../components/Loader';
+import Header from '../components/HomePage/Header';
+import CardList from '../components/HomePage/CardList';
+import LoadMoreButton from '../components/HomePage/LoadMoreButton';
+import Loader from '../components/PublicPage/Loader';
 
 export const FetchSearchContext = React.createContext();
 
@@ -83,15 +83,13 @@ const Popular = () => {
 
   return (
     <div className="popular">
-      <header className="popular__header">
-        <FetchSearchContext.Provider value={{fetchSearchData,loadMoreState}} >
-          <Header
+      <FetchSearchContext.Provider value={{ fetchSearchData, loadMoreState }}>
+        <Header
           searchPage={page.searchPage}
-          />
-        </FetchSearchContext.Provider>
-      </header>
+        />
+      </FetchSearchContext.Provider>
       <div className="popular__card-list">
-        {isLoading ? <div className="loading"><Loader /></div>
+        {isLoading ? <Loader />
           : (
             <CardList
               searchState={searchState}
@@ -100,11 +98,9 @@ const Popular = () => {
                 : popularMovies}
             />
           )}
-        <div>
-          <ScrollUpButton />
-        </div>
+        <ScrollUpButton />
         <div className="button--more">
-          <Button onClick={loadMore} value="Load More" />
+          <LoadMoreButton onClick={loadMore} value="Load More" />
         </div>
       </div>
     </div>

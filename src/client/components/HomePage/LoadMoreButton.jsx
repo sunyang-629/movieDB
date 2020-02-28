@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = (props) => {
+const LoadMoreButton = (props) => {
   const { value, onClick } = props;
   return (
     <button type="button" className="ui inverted green basic button" onClick={onClick}>
@@ -9,13 +9,13 @@ const Button = (props) => {
     </button>
   );
 };
-Button.propTypes = {
+LoadMoreButton.propTypes = {
   value: PropTypes.string,
   onClick: PropTypes.func,
 };
-Button.defaultProps = {
+LoadMoreButton.defaultProps = {
   value: 'Load More',
   onClick: () => {},
 };
 
-export default Button;
+export default LoadMoreButton;

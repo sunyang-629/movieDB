@@ -1,17 +1,11 @@
 import React from 'react';
-import Header from '../components/Header';
+import Header from '../components/HomePage/Header';
+import Error from '../components/PublicPage/Error';
 
 const ErrorPage = () => (
   <div className="error">
-    <header className="error__header">
-      <Header searchPage={0} />
-    </header>
-    <div className="error__body">
-      <div className="container">
-        <h1>Sorry, the page you are looking for does not exist</h1>
-        <h2>Please check the address and try again.</h2>
-      </div>
-    </div>
+    <Header searchPage={0} />
+    <Error />
   </div>
 );
 
