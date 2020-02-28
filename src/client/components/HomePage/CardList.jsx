@@ -3,17 +3,12 @@ import PropType from 'prop-types';
 import Card from './Card';
 
 const CardList = (props) => {
-  const { searchState, popularMovies } = props;
+  // const { searchState, popularMovies } = props;
   return (
     <div className="container">
-      <h1>{!searchState ? 'Popular Movies' : 'Search Result'}</h1>
+      <h1>{true? 'Popular Movies' : 'Search Result'}</h1>
       <div className="ui grid">
         <div className="doubling four column row">
-          {popularMovies.length && popularMovies.map((movies) => movies.map((movie) => (
-            <div key={movie.id} className="column">
-              <Card movie={movie} />
-            </div>
-          )))}
         </div>
       </div>
     </div>
