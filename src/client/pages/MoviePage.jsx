@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropType from 'prop-types';
 import axios from 'axios';
 import Loader from '../components/PublicPage/Loader';
+import Header from '../components/MoviePage/Header';
 
 const MoviePage = (props) => {
   const [movie, setMovie] = useState({});
@@ -24,14 +25,10 @@ const MoviePage = (props) => {
 
   return (
     <div className="movie container">
-      {isLoading ? <div className="loading"><Loader /></div>
+      {isLoading ? <Loader />
         : (
           <div>
-            <header className="movie__header" style={{ backgroundImage: `url(${movie.backdrop_path})` }}>
-              <div role="button" aria-hidden className="back-arrow" onClick={() => goBack()}>
-                <i className="arrow left icon" />
-              </div>
-            </header>
+            <Header movie={movie} goBack={goBack} />
             <div className="movie__details">
               <div className="container ui centered">
                 <div className="ui stackable two column grid">
