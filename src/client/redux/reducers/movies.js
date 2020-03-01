@@ -1,20 +1,29 @@
-import { FETCH_MOVIES } from '../actions/moviesAction';
+import { FETCH_MOVIES_SUCCESS } from '../actions/moviesAction';
 
-const initialState = {
-    movies: [],
-    page: 1,
-    isSearching: false,
-    isLoadingMore: false,
-    error: null,
-    isLoading: false,
+export const initialState = {
+  movies: [],
+  page: 1,
+  isSearching: false,
+  isLoadingMore: false,
+  error: null,
+  isLoading: false,
+  keyword: null,
 }
 
-const reducer = (state, action) => {
-    switch (action.type) {
-        case FETCH_MOVIES:
-            return {
-                ...state,
-                movies: action.movies,
-            }
-    }
+export const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    // case FETCH_MOVIES:
+    //     return {
+    //         ...state,
+    //         isLoading: true,
+    //     }
+    case FETCH_MOVIES_SUCCESS:
+        return {
+            ...state,
+            movies: action.movies,
+            isLoading: false,
+        }
+    default:
+        return state;
+  }
 }
