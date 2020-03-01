@@ -11,7 +11,7 @@ export const initialState = {
   isLoadingMore: false,
   error: null,
   isLoading: false,
-  keyword: null,
+  keyword: '',
 }
 
 export const moviesReducer = (state = initialState, action) => {
