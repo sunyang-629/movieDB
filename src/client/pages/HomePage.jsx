@@ -4,7 +4,7 @@ import Header from '../components/HomePage/Header';
 import CardList from '../components/HomePage/CardList';
 import LoadMoreButton from '../components/HomePage/LoadMoreButton';
 import Loader from '../components/PublicPage/Loader';
-import { reducer, initialState } from '../redux/reducers/movies';
+import { reducer, initialState } from '../redux/reducers/moviesReducer';
 import { fetchMovies } from '../redux/actions/moviesAction';
 
 const HomePage = () => {
