@@ -37,7 +37,7 @@ const CardList = () => {
       }
     }
     fetchData(state)
-  }, [state.page]);
+  }, [state.page,state.keyword]);
 
   return (
     <div className="container">
