@@ -4,6 +4,7 @@ import {
   FETCH_MOVIES_FAILURE,
   FETCH_MORE_MOVIES,
   INCREMENT_PAGE_NUMBER,
+  INPUT_SEARCH_VALUE,
 } from '../actions/moviesAction';
 
 export const initialState = {
@@ -46,6 +47,12 @@ export const moviesReducer = (state = initialState, action) => {
       return {
         ...state,
         page: state.page + 1,
+      }
+    }
+    case INPUT_SEARCH_VALUE: {
+      return {
+        ...state,
+        keyword:action.value,
       }
     }
     default:
