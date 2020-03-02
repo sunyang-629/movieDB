@@ -8,9 +8,9 @@ import {
   INPUT_SEARCH_VALUE,
 } from '../../redux/actions/moviesAction';
 
-const Search = (props) => {
+const Search = () => {
   const { state, dispatch } = useContext(HomePageContext);
-  
+
   return (
     <div className="ui search popular__header--search centered">
       <div className="ui icon input fluid">
