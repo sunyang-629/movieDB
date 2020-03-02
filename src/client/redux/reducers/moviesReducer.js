@@ -7,9 +7,10 @@ import {
   INPUT_SEARCH_VALUE,
 } from '../actions/moviesAction';
 
+const initialPage = 1;
 export const initialState = {
   movies: [],
-  page: 1,
+  page: initialPage,
   isSearching: false,
   isLoadingMore: false,
   error: null,
@@ -47,12 +48,15 @@ export const moviesReducer = (state = initialState, action) => {
       return {
         ...state,
         page: state.page + 1,
+        isLoadingMore: true,
       }
     }
     case INPUT_SEARCH_VALUE: {
       return {
         ...state,
-        keyword:action.value,
+        keyword: action.value,
+        isLoadingMore: false,
+        page: initialPage,
       }
     }
     default:

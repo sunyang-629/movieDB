@@ -31,7 +31,7 @@ const CardList = () => {
       dispatch({ type: FETCH_MOVIES });
       try {
         const result = await getMovies(state.page, state.keyword);
-        dispatch({ type: (state.page === 1 ? FETCH_MOVIES_SUCCESS : FETCH_MORE_MOVIES), movies: result });
+        dispatch({ type: (!state.isLoadingMore ? FETCH_MOVIES_SUCCESS : FETCH_MORE_MOVIES), movies: result });
       } catch (error) {
         dispatch({ type: FETCH_MOVIES_FAILURE, error });
       }
