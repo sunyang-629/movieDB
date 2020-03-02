@@ -1,36 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import PropType from 'prop-types';
 import axios from 'axios';
 import Loader from '../components/PublicPage/Loader';
 import Header from '../components/MoviePage/Header';
 import Detail from '../components/MoviePage/Detail';
+import { initialState, detailReducer } from '../redux/reducers/detailReducer';
+
+import {
+  FETCH_DETAILS,
+  FETCH_DETAILS_SUCCESS,
+  FETCH_DETAILS_FAILURE,
+} from '../redux/actions/detailAction';
+import { getDetail } from '../utils/getData';
 
 const MoviePage = (props) => {
-  const [movie, setMovie] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [hasError, setHasError] = useState(false);
-
+  const [state, dispatch] = useReducer(detailReducer, initialState);
   const { match: { params: { id } }, history: { goBack } } = props;
 
-  const fetchMovieData = () => {
-    setIsLoading(true);
-    axios.get(`http://localhost:3001/api/v1/movies/${id}`)
-      .then((res) => {
-        setMovie(res.data.data);
-        setIsLoading(false);
-      })
-      .catch(() => setHasError(true));
-  };
-
-  useEffect(fetchMovieData, []);
+  useEffect(() => {
+    const fetchData = async (id) => {
+      console.log('object');
+      dispatch({ type: FETCH_DETAILS });
+      try {
+        const result = await getDetail(id);
+        dispatch({ type: FETCH_DETAILS_SUCCESS, movie: result });
+      } catch (error) {
+        dispatch({ type: FETCH_DETAILS_FAILURE, error });
+      }
+    }
+    fetchData(id);
+  }, []);
 
   return (
     <div className="movie container">
-      {isLoading ? <Loader />
+      {false ? <Loader />
         : (
           <div>
-            <Header movie={movie} goBack={goBack} />
-            <Detail movie={movie} />
+            <Header goBack={goBack} />
+            <Detail />
           </div>
         ) }
     </div>

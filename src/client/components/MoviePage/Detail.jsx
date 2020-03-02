@@ -9,24 +9,20 @@ const Detail = (props) => {
           <div className="ten wide column">
             <div className="ui grid">
               <div className="eight wide column">
-                <img className="ui fluid image" src={movie.poster_path} alt="poster" />
+                <img className="ui fluid image"  alt="poster" />
               </div>
               <div className="eight wide column">
-                <h1>{movie && movie.title}</h1>
+                <h1></h1>
                 <p>
-                  {movie && movie.release_year}
                   {' '}
                   ·
                   {' '}
-                  {movie && movie.vote}
                   {' '}
                   User Score
                 </p>
                 <p>
-                  {movie && movie.runtime_hours}
                   h
                   {' '}
-                  {movie && movie.runtime_minutes}
                   {' '}
                   min
                 </p>
@@ -35,7 +31,7 @@ const Detail = (props) => {
           </div>
           <div className="six wide column">
             <h2>Overview</h2>
-            <p className="bolder">{movie && movie.overview}</p>
+            <p className="bolder"></p>
           </div>
         </div>
       </div>
