@@ -35,11 +35,13 @@ export const moviesReducer = (state = initialState, action) => {
           isLoading: false,
           error: action.error,
         }
-    // case FETCH_MORE_MOVIES:
-    //   return {
-    //     ...state,
-    //     movies: state.movies
-    //   }
+    case FETCH_MORE_MOVIES:
+      state.movies.push.apply(state.movies,action.movies)
+      return {
+        ...state,
+        isLoading: false,
+        movies: state.movies,
+      }
     case INCREMENT_PAGE_NUMBER: {
       return {
         ...state,
