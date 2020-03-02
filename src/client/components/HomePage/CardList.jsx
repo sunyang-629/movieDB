@@ -41,7 +41,7 @@ const CardList = () => {
 
   return (
     <div className="container">
-      <h1>{true? 'Popular Movies' : 'Search Result'}</h1>
+      <h1>{state.keyword.length === 0? 'Popular Movies' : 'Search Result'}</h1>
       <div className="ui grid">
         <div className="doubling four column row">
           {state.movies.length && state.movies.map((movie) => (

@@ -10,19 +10,7 @@ import {
 
 const Search = (props) => {
   const { state, dispatch } = useContext(HomePageContext);
-
-  // const [searchValue, setSearchValue] = useState(null);
-  // const { searchPage } = props;
-  // const { fetchSearchData, loadMoreState } = useContext(FetchSearchContext);
-
-  // const handleOnChange = (e) => setSearchValue(e.target.value);
-
-  // const callSearchFunction = () => (loadMoreState
-  //   ? fetchSearchData(searchValue, searchPage)
-  //   : fetchSearchData(searchValue, 1));
-
-  // useEffect(callSearchFunction, [searchPage, searchValue]);
-
+  
   return (
     <div className="ui search popular__header--search centered">
       <div className="ui icon input fluid">

@@ -56,6 +56,7 @@ export const moviesReducer = (state = initialState, action) => {
         ...state,
         keyword: action.value,
         isLoadingMore: false,
+        isLoading: false,
         page: initialPage,
       }
     }
