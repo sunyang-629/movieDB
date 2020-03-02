@@ -35,7 +35,7 @@ const MoviePage = (props) => {
   return (
     <MoviePageContext.Provider value={{state, dispatch}}>
       <div className="movie container">
-        {false ? <Loader />
+        {state.isLoading ? <Loader />
           : (
             <div>
               <Header goBack={goBack} />

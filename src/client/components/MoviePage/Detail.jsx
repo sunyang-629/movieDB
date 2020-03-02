@@ -3,7 +3,6 @@ import MoviePageContext from '../../redux/contexts/MoviePageContext';
 
 const Detail = () => {
   const { state: { movie } } = useContext(MoviePageContext);
-  // const { movie } = state;
   return (
     <div className="movie__details">
       <div className="container ui centered">
