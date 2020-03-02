@@ -8,6 +8,7 @@ import {
 } from '../actions/moviesAction';
 
 const initialPage = 1;
+const increment = 1;
 export const initialState = {
   movies: [],
   page: initialPage,
@@ -47,7 +48,7 @@ export const moviesReducer = (state = initialState, action) => {
     case INCREMENT_PAGE_NUMBER: {
       return {
         ...state,
-        page: state.page + 1,
+        page: state.page + increment,
         isLoadingMore: true,
       }
     }
