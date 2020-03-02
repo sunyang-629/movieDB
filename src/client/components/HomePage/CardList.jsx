@@ -1,7 +1,8 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useContext } from 'react';
 import PropType from 'prop-types';
 import Card from './Card';
 import { moviesReducer, initialState } from '../../redux/reducers/moviesReducer';
+import HomePageContext from '../../redux/contexts/HomePageContext';
 
 import {
   FETCH_MOVIES,
@@ -11,7 +12,8 @@ import {
 import { getMovies } from '../../utils/getMovies';
 
 const CardList = () => {
-  const [state, dispatch] = useReducer(moviesReducer, initialState);
+  // const [state, dispatch] = useReducer(moviesReducer, initialState);
+  const { state, dispatch } = useContext(HomePageContext);
   useEffect(() => {
     const fetchData = async (state) => {
       dispatch({ type: FETCH_MOVIES });

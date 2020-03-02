@@ -5,18 +5,18 @@ import CardList from '../components/HomePage/CardList';
 import LoadMoreButton from '../components/HomePage/LoadMoreButton';
 import Loader from '../components/PublicPage/Loader';
 import { moviesReducer, initialState } from '../redux/reducers/moviesReducer';
+import HomePageContext from '../redux/contexts/HomePageContext';
 
-import {
-  FETCH_MOVIES,
-  FETCH_MOVIES_SUCCESS,
-  FETCH_MOVIES_FAILURE,
-} from '../redux/actions/moviesAction';
-import { getMovies } from '../utils/getMovies';
+// import {
+//   FETCH_MOVIES,
+//   FETCH_MOVIES_SUCCESS,
+//   FETCH_MOVIES_FAILURE,
+// } from '../redux/actions/moviesAction';
+// import { getMovies } from '../utils/getMovies';
 
 const HomePage = () => {
-  // const useThunkReducer = applyMiddleware(useReducer, thunkMiddleware);
-  // const [state, dispatch] = useReducer(moviesReducer, initialState);
-  // useEffect(() => dispatch(fetchMoviesAction()), []);
+
+  const [state, dispatch] = useReducer(moviesReducer, initialState);
   // useEffect(() => {
   //   const fetchData = async (state) => {
   //     dispatch({ type: FETCH_MOVIES });
@@ -31,16 +31,18 @@ const HomePage = () => {
   // }, []);
 
   return (
-    <div className="popular">
-        <Header />
-      <div className="popular__card-list">
-        <CardList />
-        <ScrollUpButton />
-        <div className="button--more">
-          <LoadMoreButton value="Load More" />
+    <HomePageContext.Provider value={{state, dispatch}}>
+      <div className="popular">
+          <Header />
+        <div className="popular__card-list">
+          <CardList />
+          <ScrollUpButton />
+          <div className="button--more">
+            <LoadMoreButton value="Load More" />
+          </div>
         </div>
       </div>
-    </div>
+    </HomePageContext.Provider>
   );
 };
 

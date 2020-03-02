@@ -2,6 +2,8 @@ import {
   FETCH_MOVIES,
   FETCH_MOVIES_SUCCESS,
   FETCH_MOVIES_FAILURE,
+  FETCH_MORE_MOVIES,
+  INCREMENT_PAGE_NUMBER,
 } from '../actions/moviesAction';
 
 export const initialState = {
@@ -33,6 +35,17 @@ export const moviesReducer = (state = initialState, action) => {
           isLoading: false,
           error: action.error,
         }
+    // case FETCH_MORE_MOVIES:
+    //   return {
+    //     ...state,
+    //     movies: state.movies
+    //   }
+    case INCREMENT_PAGE_NUMBER: {
+      return {
+        ...state,
+        page: state.page + 1,
+      }
+    }
     default:
         return state;
   }
