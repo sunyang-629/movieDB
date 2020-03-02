@@ -2,3 +2,10 @@
 @import'./cardlist.scss';
 @import'./movie.scss';
 @import'./error.scss';
+@import'./variables.scss';
+
+body{
+    height: 100vh;
+    min-height: 100%;
+    background: $BACKGROUND_COLOR;
+}
