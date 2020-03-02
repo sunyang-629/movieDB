@@ -5,6 +5,7 @@ import Loader from '../components/PublicPage/Loader';
 import Header from '../components/MoviePage/Header';
 import Detail from '../components/MoviePage/Detail';
 import { initialState, detailReducer } from '../redux/reducers/detailReducer';
+import MoviePageContext from '../redux/contexts/MoviePageContext';
 
 import {
   FETCH_DETAILS,
@@ -32,15 +33,17 @@ const MoviePage = (props) => {
   }, []);
 
   return (
-    <div className="movie container">
-      {false ? <Loader />
-        : (
-          <div>
-            <Header goBack={goBack} />
-            <Detail />
-          </div>
-        ) }
-    </div>
+    <MoviePageContext.Provider value={{state, dispatch}}>
+      <div className="movie container">
+        {false ? <Loader />
+          : (
+            <div>
+              <Header goBack={goBack} />
+              <Detail />
+            </div>
+          ) }
+      </div>
+    </MoviePageContext.Provider>
   );
 };
 MoviePage.propTypes = {
