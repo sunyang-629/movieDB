@@ -18,11 +18,10 @@ const MoviePage = (props) => {
   const { match: { params: { id } }, history: { goBack } } = props;
 
   useEffect(() => {
-    const fetchData = async (id) => {
-      console.log('object');
+    const fetchData = async (movieId) => {
       dispatch({ type: FETCH_DETAILS });
       try {
-        const result = await getDetail(id);
+        const result = await getDetail(movieId);
         dispatch({ type: FETCH_DETAILS_SUCCESS, movie: result });
       } catch (error) {
         dispatch({ type: FETCH_DETAILS_FAILURE, error });
