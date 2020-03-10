@@ -1,8 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import PropType from 'prop-types';
-import { FetchSearchContext } from '../../pages/HomePage';
+import React, { useContext } from 'react';
 import HomePageContext from '../../redux/contexts/HomePageContext';
-
 
 import {
   INPUT_SEARCH_VALUE,
@@ -21,14 +18,5 @@ const Search = () => {
     </div>
   );
 };
-Search.propTypes = {
-  searchPage: PropType.number,
-  loadMoreState: PropType.bool,
-  fetchSearchData: PropType.func,
-};
-Search.defaultProps = {
-  searchPage: 1,
-  loadMoreState: false,
-  fetchSearchData: () => {},
-};
+
 export default Search;
