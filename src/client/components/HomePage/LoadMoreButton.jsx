@@ -17,11 +17,9 @@ const LoadMoreButton = (props) => {
 };
 LoadMoreButton.propTypes = {
   value: PropTypes.string,
-  onClick: PropTypes.func,
 };
 LoadMoreButton.defaultProps = {
   value: 'Load More',
-  onClick: () => {},
 };
 
 export default LoadMoreButton;
