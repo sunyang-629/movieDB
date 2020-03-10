@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import MoviePageContext from '../../redux/contexts/MoviePageContext';
 
 const Header = (props) => {
@@ -11,6 +12,14 @@ const Header = (props) => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  goBack: PropTypes.func,
+};
+
+Header.defaultProps = {
+  goBack: () => {},
 };
 
 export default Header;
