@@ -28,12 +28,12 @@ const MoviePage = (props) => {
       } catch (error) {
         dispatch({ type: FETCH_DETAILS_FAILURE, error });
       }
-    }
+    };
     fetchData(id);
   }, []);
 
   return (
-    <MoviePageContext.Provider value={{state, dispatch}}>
+    <MoviePageContext.Provider value={{ state, dispatch }}>
       <div className="movie container">
         {state.isLoading ? <Loader />
           : (

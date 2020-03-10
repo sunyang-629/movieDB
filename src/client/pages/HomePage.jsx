@@ -16,7 +16,6 @@ import {
 import { getMovies } from '../utils/getData';
 
 const HomePage = () => {
-
   const [state, dispatch] = useReducer(moviesReducer, initialState);
   useEffect(() => {
     const fetchData = async (state) => {
@@ -27,14 +26,14 @@ const HomePage = () => {
       } catch (error) {
         dispatch({ type: FETCH_MOVIES_FAILURE, error });
       }
-    }
-    fetchData(state)
-  }, [state.page,state.keyword]);
+    };
+    fetchData(state);
+  }, [state.page, state.keyword]);
 
   return (
-    <HomePageContext.Provider value={{state, dispatch}}>
+    <HomePageContext.Provider value={{ state, dispatch }}>
       <div className="popular">
-          <Header />
+        <Header />
         <div className="popular__card-list">
           {state.isLoading && !state.isLoadingMore ? <Loader /> : <CardList />}
           <ScrollUpButton />

@@ -3,8 +3,8 @@ import { moviesReducer } from './moviesReducer';
 import { detailReducer } from './detailReducer';
 
 const reducers = combineReducers({
-    moviesReducer,
-    detailReducer,
-})
+  moviesReducer,
+  detailReducer,
+});
 
 export default reducers;

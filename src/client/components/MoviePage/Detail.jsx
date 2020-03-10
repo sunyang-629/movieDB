@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 import MoviePageContext from '../../redux/contexts/MoviePageContext';
 
 const Detail = () => {

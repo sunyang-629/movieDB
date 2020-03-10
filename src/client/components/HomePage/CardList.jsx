@@ -35,7 +35,8 @@ const CardList = () => {
           {state.movies.length && state.movies.map((movie) => (
             <div key={movie.id} className="column">
               <Card movie={movie} />
-            </div>))}
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ const LoadMoreButton = (props) => {
   const { value } = props;
   const { dispatch } = useContext(HomePageContext);
   return (
-    <button type="button" className="ui inverted green basic button" onClick={() => dispatch({type:INCREMENT_PAGE_NUMBER})}>
+    <button type="button" className="ui inverted green basic button" onClick={() => dispatch({ type: INCREMENT_PAGE_NUMBER })}>
       {value}
     </button>
   );
