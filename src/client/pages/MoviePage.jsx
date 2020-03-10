@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import PropType from 'prop-types';
-import axios from 'axios';
 import Loader from '../components/PublicPage/Loader';
 import Header from '../components/MoviePage/Header';
 import Detail from '../components/MoviePage/Detail';

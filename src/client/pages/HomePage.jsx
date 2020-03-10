@@ -18,16 +18,21 @@ import { getMovies } from '../utils/getData';
 const HomePage = () => {
   const [state, dispatch] = useReducer(moviesReducer, initialState);
   useEffect(() => {
-    const fetchData = async (state) => {
+    const fetchData = async (page, keyword, isLoadingMore) => {
       dispatch({ type: FETCH_MOVIES });
       try {
-        const result = await getMovies(state.page, state.keyword);
-        dispatch({ type: (!state.isLoadingMore ? FETCH_MOVIES_SUCCESS : FETCH_MORE_MOVIES), movies: result });
+        const result = await getMovies(page, keyword);
+        dispatch({
+          type: (!isLoadingMore
+            ? FETCH_MOVIES_SUCCESS
+            : FETCH_MORE_MOVIES),
+          movies: result,
+        });
       } catch (error) {
         dispatch({ type: FETCH_MOVIES_FAILURE, error });
       }
     };
-    fetchData(state);
+    fetchData(state.page, state.keyword, state.isLoadingMore);
   }, [state.page, state.keyword]);
 
   return (
