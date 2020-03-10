@@ -39,7 +39,8 @@ export const moviesReducer = (state = initialState, action) => {
         error: action.error,
       };
     case FETCH_MORE_MOVIES:
-      state.movies.push.apply(...state.movies, action.movies);
+      state.movies.push(...action.movies);
+      // state.movies.push.apply(state.movies, action.movies);
       return {
         ...state,
         isLoading: false,
