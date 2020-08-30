@@ -32,7 +32,7 @@ const HomePage = () => {
         dispatch({ type: FETCH_MOVIES_FAILURE, error });
       }
     };
-    fetchData(state.page, state.keyword, state.isLoadingMore);
+    fetchData(state.page, state.keyword, state.isLoadingMore);   // eslint-disable-next-line
   }, [state.page, state.keyword]);
 
   return (

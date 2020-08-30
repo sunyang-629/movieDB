@@ -28,7 +28,7 @@ const MoviePage = (props) => {
       }
     };
     fetchData(id);
-  }, []);
+  }, [id]);
 
   return (
     <MoviePageContext.Provider value={{ state, dispatch }}>
