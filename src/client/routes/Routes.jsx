@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import HomePage from '../pages/HomePage';
 import MoviePage from '../pages/MoviePage';
-import ErrorPage from '../pages/ErrorPage1';
+import ErrorPage from '../pages/ErrorPage';
 
 const Routes = () => (
   <Switch>
