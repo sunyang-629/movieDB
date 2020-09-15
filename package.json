@@ -27,8 +27,7 @@
   },
   "scripts": {
     "backend": "nodemon src/server/index.js",
-    "frontend":"react-scripts start",
-    "start": "node server/server.js",
+    "start":"react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -57,5 +56,6 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^1.7.0",
     "stylelint-scss": "^3.18.0"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
